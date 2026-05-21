@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -118,7 +119,10 @@ export default function ReportDetail({ id }: Props) {
     setPreviewLoading(true);
     setPreviewOpen(true);
     try {
-      const res = await fetch(`/api/pitch-deck/${report.id}?format=html`);
+      const token = localStorage.getItem("auth_token");
+      const res = await fetch(`/api/pitch-deck/${report.id}?format=html`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
       setPreviewHtml(html);
@@ -135,7 +139,10 @@ export default function ReportDetail({ id }: Props) {
     if (!report) return;
     setDownloading(true);
     try {
-      const res = await fetch(`/api/pitch-deck/${report.id}`);
+      const token = localStorage.getItem("auth_token");
+      const res = await fetch(`/api/pitch-deck/${report.id}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
@@ -295,6 +302,9 @@ export default function ReportDetail({ id }: Props) {
               <Presentation className="h-4 w-4 text-primary" />
               Preview Pitch Deck
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              Preview of the generated pitch deck presentation
+            </DialogDescription>
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
