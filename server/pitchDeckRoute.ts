@@ -129,7 +129,7 @@ export function registerPitchDeckRoute(app: Express) {
 
       const safeTitle = report.title.replace(/[^a-zA-Z0-9\s]/g, "").replace(/\s+/g, "-").toLowerCase();
       res.setHeader("Content-Type", "application/pdf");
-      res.setHeader("Content-Disposition", `attachment; filename="fiswarm-pitchdeck-${safeTitle}.pdf"`);
+      res.setHeader("Content-Disposition", `attachment; filename="fi-fiine-pitchdeck-${safeTitle}.pdf"`);
       res.setHeader("Content-Length", pdfBuffer.length);
       res.send(pdfBuffer);
 
