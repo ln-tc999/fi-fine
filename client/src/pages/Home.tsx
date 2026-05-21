@@ -92,7 +92,7 @@ function KpiPreview() {
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="ml-2 text-white/30 text-[9px]">fiswarm — dashboard</span>
+        <span className="ml-2 text-white/30 text-[9px]">Fi-Fine— dashboard</span>
       </div>
       {/* KPI row */}
       <div className="grid grid-cols-3 gap-px bg-white/5 border-b border-white/10">
@@ -268,7 +268,7 @@ export default function Home() {
           <div className="w-7 h-7 rounded-md bg-[#00d4aa] flex items-center justify-center">
             <TrendingUp className="w-4 h-4 text-[#060a08]" strokeWidth={2.5} />
           </div>
-          <span className="font-bold text-sm tracking-tight">FiSwarm</span>
+          <span className="font-bold text-sm tracking-tight">Fi-Fine</span>
           <span className="hidden sm:block text-[10px] text-white/30 font-mono tracking-widest uppercase ml-1">Financial Intelligence</span>
         </button>
 
@@ -349,7 +349,7 @@ export default function Home() {
 
               {/* Sub */}
               <p className="text-white/50 text-lg leading-relaxed mb-10 max-w-md">
-                FiSwarm combines SME accounting with proprietary multi-agent swarm AI simulation.
+                Fi-Finecombines SME accounting with proprietary multi-agent swarm AI simulation.
                 Log transactions, run 4-agent AI predictions, and export professional pitch deck PDFs.
               </p>
 
@@ -639,7 +639,7 @@ export default function Home() {
                 <div className="w-6 h-6 rounded-md bg-[#00d4aa] flex items-center justify-center">
                   <TrendingUp className="w-3.5 h-3.5 text-[#060a08]" strokeWidth={2.5} />
                 </div>
-                <span className="font-bold text-sm">FiSwarm</span>
+                <span className="font-bold text-sm">Fi-Fine</span>
               </div>
               <p className="text-xs text-white/30 leading-relaxed">
                 SME Financial Intelligence Platform.<br />
