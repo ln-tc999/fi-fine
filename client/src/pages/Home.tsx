@@ -337,7 +337,7 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00d4aa]/30 bg-[#00d4aa]/5 text-[#00d4aa] text-xs font-mono mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00d4aa] animate-pulse" />
-                FI SWARM — AI-POWERED SME FINANCIAL INTELLIGENCE
+                FI-FINE — AI-POWERED SME FINANCIAL INTELLIGENCE
               </div>
 
               {/* Headline */}
@@ -373,7 +373,7 @@ export default function Home() {
 
               {/* Trust line */}
               <p className="mt-8 text-white/25 text-xs font-mono">
-                FI SWARM · AI-POWERED SME FINANCIAL INTELLIGENCE
+                FI-FINE · AI-POWERED SME FINANCIAL INTELLIGENCE
               </p>
             </div>
 
@@ -691,7 +691,7 @@ export default function Home() {
 
           {/* Bottom bar */}
           <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-[11px] text-white/20 font-mono">© 2026 FI SWARM · AI-POWERED SME FINANCIAL INTELLIGENCE</p>
+            <p className="text-[11px] text-white/20 font-mono">© 2026 FI-FINE · AI-POWERED SME FINANCIAL INTELLIGENCE</p>
             <p className="text-[11px] text-white/20 font-mono">POWERED BY NVIDIA LLM · MULTI-AGENT SWARM SIMULATION</p>
           </div>
         </div>
