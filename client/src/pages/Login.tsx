@@ -51,7 +51,7 @@ export default function Login() {
                 Multi-Agent AI
               </h1>
               <p className="text-muted-foreground text-base mt-4 max-w-md leading-relaxed">
-                Small businesses struggle with cashflow uncertainty. FiSwarm uses four collaborative AI agents to simulate financial scenarios, detect risks, and generate actionable reports — no accountants required.
+                Small businesses struggle with cashflow uncertainty. Fi-Fineuses four collaborative AI agents to simulate financial scenarios, detect risks, and generate actionable reports — no accountants required.
               </p>
             </div>
 
@@ -109,7 +109,7 @@ export default function Login() {
               className="w-full space-y-6 rounded-xl border border-border bg-card p-8 shadow-lg"
             >
               <div className="space-y-2 text-center">
-                <div className="text-2xl font-bold tracking-tight text-foreground">FiSwarm</div>
+                <div className="text-2xl font-bold tracking-tight text-foreground">Fi-Fine</div>
                 <p className="text-sm text-muted-foreground">
                   Enter your name to get started
                 </p>
@@ -157,7 +157,7 @@ export default function Login() {
       {/* ── Footer ── */}
       <footer className="border-t border-border py-4 px-6">
         <div className="max-w-6xl mx-auto flex items-center justify-between text-xs text-muted-foreground">
-          <span>FiSwarm — AI-Powered SME Financial Intelligence</span>
+          <span>Fi-Fine— AI-Powered SME Financial Intelligence</span>
           <span>Powered by NVIDIA LLM · Multi-Agent Swarm</span>
         </div>
       </footer>
