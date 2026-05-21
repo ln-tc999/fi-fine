@@ -148,7 +148,7 @@ export default function ReportDetail({ id }: Props) {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `fiswarm-pitchdeck-${report.id}.pdf`;
+      a.download = `fi-swarm-pitchdeck-${report.id}.pdf`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

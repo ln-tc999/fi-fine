@@ -109,7 +109,7 @@ export default function Simulation() {
   const runMutation = trpc.simulations.run.useMutation({
     onSuccess: (data) => {
       utils.simulations.list.invalidate();
-      toast.success("Simulation selesai!");
+      toast.success("Simulation complete!");
       setLocation(`/simulation/${data.simulationId}`);
     },
     onError: (e) => toast.error(e.message),
@@ -134,7 +134,7 @@ export default function Simulation() {
       <div>
         <h1 className="text-lg font-semibold tracking-tight">Swarm Simulation</h1>
         <p className="text-sm text-muted-foreground mt-0.5">
-          Multi-agent cashflow prediction powered by FiSwarm swarm intelligence
+          Multi-agent LLM cashflow simulation — predict, analyze, and export
         </p>
       </div>
 

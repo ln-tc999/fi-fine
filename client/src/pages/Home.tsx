@@ -11,8 +11,7 @@ const FORECAST_LINE = [60, 65, 70, 68, 75, 80, 85, 82, 90, 95, 92, 100];
 const STATS = [
   { value: "4", label: "AI Agents", sub: "Owner · Supplier · Customer · Bank" },
   { value: "3×", label: "Higher Accuracy", sub: "vs. single-agent analysis" },
-  { value: "9", label: "Pitch Deck Slides", sub: "Auto-generated PDF" },
-  { value: "100%", label: "Bahasa Indonesia", sub: "Reports & Recommendations" },
+  { value: "9", label: "Pitch Deck Slides", sub: "Auto-generated PDF export" },
 ];
 
 // ── Feature bento items ───────────────────────────────────────────────────────
@@ -44,7 +43,7 @@ const FEATURES = [
   {
     tag: "REPORT",
     title: "Reports & Pitch Deck",
-    desc: "Financial reports in Bahasa Indonesia + 9-slide PDF export.",
+    desc: "AI-generated 9-slide PDF pitch deck with charts and risk analysis.",
     icon: FileText,
     size: "small",
     preview: "report",
@@ -338,7 +337,7 @@ export default function Home() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#00d4aa]/30 bg-[#00d4aa]/5 text-[#00d4aa] text-xs font-mono mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00d4aa] animate-pulse" />
-                AI AGENT SOL — SWARM AI FOR UMKM
+                FI SWARM — AI-POWERED SME FINANCIAL INTELLIGENCE
               </div>
 
               {/* Headline */}
@@ -350,8 +349,8 @@ export default function Home() {
 
               {/* Sub */}
               <p className="text-white/50 text-lg leading-relaxed mb-10 max-w-md">
-                FiSwarm combines SME accounting with a proprietary multi-agent swarm simulation.
-                Log transactions, run 4-agent AI predictions, and receive full financial reports in Bahasa Indonesia.
+                FiSwarm combines SME accounting with proprietary multi-agent swarm AI simulation.
+                Log transactions, run 4-agent AI predictions, and export professional pitch deck PDFs.
               </p>
 
               {/* CTA row */}
@@ -374,7 +373,7 @@ export default function Home() {
 
               {/* Trust line */}
               <p className="mt-8 text-white/25 text-xs font-mono">
-                BUILT FOR AI AGENT SOL · SWARM INTELLIGENCE · OPEN SOURCE
+                FI SWARM · AI-POWERED SME FINANCIAL INTELLIGENCE
               </p>
             </div>
 
@@ -643,8 +642,8 @@ export default function Home() {
                 <span className="font-bold text-sm">FiSwarm</span>
               </div>
               <p className="text-xs text-white/30 leading-relaxed">
-                UMKM Financial Intelligence Platform.<br />
-                Built for AI Agent Sol.
+                SME Financial Intelligence Platform.<br />
+                Built for AI Agent Sol Hackathon.
               </p>
             </div>
 
@@ -679,9 +678,9 @@ export default function Home() {
             <div>
               <div className="text-[10px] font-mono text-white/30 tracking-widest mb-3">HACKATHON</div>
               <div className="space-y-2">
-                <div className="text-xs text-white/40">AI Agent Sol</div>
-                <div className="text-xs text-white/40">Category: Fintech UMKM</div>
-                <div className="text-xs text-white/40">Engine: FiSwarm AI</div>
+                <div className="text-xs text-white/40">AI Agent Sol Hackathon</div>
+                <div className="text-xs text-white/40">Track: Finance & Business</div>
+                <div className="text-xs text-white/40">Engine: LLM Multi-Agent Swarm</div>
                 <div className="inline-flex items-center gap-1.5 mt-2 px-2 py-1 rounded-full border border-[#00d4aa]/20 bg-[#00d4aa]/5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00d4aa]" />
                   <span className="text-[9px] font-mono text-[#00d4aa]/80">SUBMISSION READY</span>
@@ -692,8 +691,8 @@ export default function Home() {
 
           {/* Bottom bar */}
           <div className="border-t border-white/[0.06] pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-[11px] text-white/20 font-mono">© 2026 FISWARM · BUILT FOR AI AGENT SOL</p>
-            <p className="text-[11px] text-white/20 font-mono">POWERED BY MIROFISH SWARM ENGINE · LLM MULTI-AGENT</p>
+            <p className="text-[11px] text-white/20 font-mono">© 2026 FI SWARM · AI-POWERED SME FINANCIAL INTELLIGENCE</p>
+            <p className="text-[11px] text-white/20 font-mono">POWERED BY NVIDIA LLM · MULTI-AGENT SWARM SIMULATION</p>
           </div>
         </div>
       </footer>

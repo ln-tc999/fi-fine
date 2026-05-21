@@ -20,7 +20,7 @@ export default function Reports() {
       <div>
         <h1 className="text-lg font-semibold tracking-tight">Financial Reports</h1>
         <p className="text-sm text-muted-foreground">
-          Simulation report summaries — generated in Bahasa Indonesia
+          AI-generated financial reports from swarm simulations
         </p>
       </div>
 

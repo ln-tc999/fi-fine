@@ -69,7 +69,7 @@ export function registerPitchDeckRoute(app: Express) {
       const execSummary = report.summary ||
         lines.slice(0, 3).join(" ").replace(/#+\s*/g, "").substring(0, 400);
 
-      // Extract recommendations from report content (lines after "Strategi" or "Rekomendasi")
+      // Extract recommendations from report content (lines after "Strategi", "Rekomendasi", "Strategy", or "Recommendations")
       const recSection = report.content ?? "";
       const recMatches = recSection.match(/(?:^|\n)[-•*]\s+(.+)/gm) ?? [];
       const recommendations = recMatches
@@ -79,16 +79,16 @@ export function registerPitchDeckRoute(app: Express) {
 
       if (recommendations.length === 0) {
         recommendations.push(
-          "Pantau cashflow harian dan bandingkan dengan proyeksi simulasi setiap minggu.",
-          "Diversifikasi sumber pendapatan untuk mengurangi ketergantungan pada satu segmen pelanggan.",
-          "Optimalkan pengeluaran operasional dengan mengidentifikasi biaya yang dapat dikurangi.",
-          "Bangun cadangan kas minimal 3 bulan pengeluaran operasional sebagai buffer risiko.",
+          "Monitor daily cashflow and compare with simulation projections on a weekly basis.",
+          "Diversify revenue streams to reduce dependency on a single customer segment.",
+          "Optimize operational expenses by identifying and reducing cost inefficiencies.",
+          "Build a cash reserve of at least 3 months of operational expenses as a risk buffer.",
         );
       }
 
       // Business name from seed text or title
-      const businessNameMatch = (sim.seedText ?? "").match(/(?:Bisnis|Usaha|Toko|Nama):\s*([^\n]+)/i);
-      const businessName = businessNameMatch?.[1]?.trim() || user.name || "Bisnis UMKM";
+      const businessNameMatch = (sim.seedText ?? "").match(/(?:Business|Company|Store|Name):\s*([^\n]+)/i);
+      const businessName = businessNameMatch?.[1]?.trim() || user.name || "SME Business";
 
       const input: PitchDeckInput = {
         businessName,

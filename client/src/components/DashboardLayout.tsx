@@ -43,7 +43,7 @@ const menuItems = [
   { icon: Zap, label: "Quick Demo", path: "/demo" },
 ];
 
-const SIDEBAR_WIDTH_KEY = "fiswarm-sidebar-width";
+const SIDEBAR_WIDTH_KEY = "fi-swarm-sidebar-width";
 const DEFAULT_WIDTH = 220;
 const MIN_WIDTH = 180;
 const MAX_WIDTH = 320;
@@ -68,7 +68,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <div className="text-center">
             <div className="text-2xl font-bold tracking-tight text-primary mb-1">FiSwarm</div>
             <div className="text-xs text-muted-foreground uppercase tracking-widest mb-6">
-              UMKM Financial Intelligence
+              SME Financial Intelligence
             </div>
             <h2 className="text-lg font-semibold mb-2">Sign in to continue</h2>
             <p className="text-sm text-muted-foreground">

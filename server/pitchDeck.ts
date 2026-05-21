@@ -193,7 +193,7 @@ function slide(index: number, total: number, content: string, accent = "#00d4aa"
   <div class="slide" id="slide-${index}">
     <div class="slide-number">${index} / ${total}</div>
     ${content}
-    <div class="slide-footer">FiSwarm — SME Financial Intelligence</div>
+    <div class="slide-footer">Fi Swarm — SME Financial Intelligence</div>
   </div>`;
 }
 
@@ -221,11 +221,11 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
         <span class="sep">|</span>
         <span style="color:${riskLevelColor(riskLevel)}">Risk: ${riskLevel.toUpperCase()}</span>
       </div>
-      <div class="cover-brand">FiSwarm · Swarm AI Financial Intelligence</div>
+      <div class="cover-brand">Fi Swarm · SME Financial Intelligence</div>
     </div>
   `);
 
-  // ── Slide 2: Ringkasan Eksekutif ────────────────────────────────────────────
+  // ── Slide 2: Executive Summary ────────────────────────────────────────────
   const s2 = slide(2, TOTAL, `
     <div class="content-slide">
       <div class="slide-label">02 — EXECUTIVE SUMMARY</div>
@@ -276,17 +276,17 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
         <div class="kpi-card">
           <div class="kpi-icon" style="background:#a78bfa22;color:#a78bfa">AI</div>
           <div class="kpi-val" style="color:#a78bfa">${kpis.avgConfidence.toFixed(0)}%</div>
-          <div class="kpi-lbl">Tingkat Kepercayaan Simulasi</div>
+          <div class="kpi-lbl">Simulation Confidence Level</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon" style="background:${riskLevelColor(riskLevel)}22;color:${riskLevelColor(riskLevel)}">!</div>
           <div class="kpi-val" style="color:${riskLevelColor(riskLevel)}">${riskLevel.toUpperCase()}</div>
-          <div class="kpi-lbl">Level Risiko Keseluruhan</div>
+          <div class="kpi-lbl">Overall Risk Level</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-icon" style="background:#fbbf2422;color:#fbbf24">⚑</div>
           <div class="kpi-val" style="color:#fbbf24">${riskAlerts.length}</div>
-          <div class="kpi-lbl">Jumlah Peringatan Risiko</div>
+          <div class="kpi-lbl">Total Risk Alerts</div>
         </div>
       </div>
     </div>
@@ -295,13 +295,13 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
   // ── Slide 4: Income vs Expense Bar Chart ────────────────────────────────────
   const s4 = slide(4, TOTAL, `
     <div class="content-slide">
-      <div class="slide-label">04 — ANALISIS PENDAPATAN & PENGELUARAN</div>
-      <h2 class="slide-title">Tren Bulanan: Revenue vs Expenses</h2>
+      <div class="slide-label">04 — REVENUE & EXPENSE ANALYSIS</div>
+      <h2 class="slide-title">Monthly Trend: Revenue vs Expenses</h2>
       <div class="chart-wrap">${barChart}</div>
       <div class="chart-insight">
-        <span style="color:#00d4aa">▲ Revenue tertinggi:</span>
+        <span style="color:#00d4aa">▲ Peak Revenue:</span>
         ${formatUSD(Math.max(...forecast.map((f) => f.income)))} &nbsp;|&nbsp;
-        <span style="color:#ff6b6b">▼ Expenses tertinggi:</span>
+        <span style="color:#ff6b6b">▼ Peak Expenses:</span>
         ${formatUSD(Math.max(...forecast.map((f) => f.expense)))}
       </div>
     </div>
@@ -311,11 +311,11 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
   const s5 = slide(5, TOTAL, `
     <div class="content-slide">
       <div class="slide-label">05 — CASHFLOW PROJECTION</div>
-      <h2 class="slide-title">Net Cashflow ${forecastMonths} Bulan ke Depan</h2>
+      <h2 class="slide-title">Net Cashflow — ${forecastMonths}-Month Outlook</h2>
       <div class="chart-wrap">${areaChart}</div>
       <div class="forecast-table">
         <table>
-          <thead><tr><th>Bulan</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Kepercayaan</th></tr></thead>
+          <thead><tr><th>Month</th><th>Revenue</th><th>Expenses</th><th>Net</th><th>Confidence</th></tr></thead>
           <tbody>
             ${forecast.map((f) => `
               <tr>
@@ -339,9 +339,9 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
   const s6 = slide(6, TOTAL, `
     <div class="content-slide">
       <div class="slide-label">06 — RISK ALERTS</div>
-      <h2 class="slide-title">Identifikasi Risiko Bisnis</h2>
+      <h2 class="slide-title">Business Risk Assessment</h2>
       ${riskAlerts.length === 0
-        ? `<div class="no-risk">No risk alerts yang terdeteksi. Kondisi keuangan dalam keadaan baik.</div>`
+        ? `<div class="no-risk">No risk alerts detected. Financial condition appears stable.</div>`
         : `<div class="risk-list">
           ${riskAlerts.map((a) => `
             <div class="risk-item" style="border-left:3px solid ${severityColor(a.severity)}">
@@ -367,7 +367,7 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
 
   const s7 = slide(7, TOTAL, `
     <div class="content-slide">
-      <div class="slide-label">07 — SWARM AGENT INSIGHTS AI</div>
+      <div class="slide-label">07 — AI SWARM AGENT INSIGHTS</div>
       <h2 class="slide-title">Multi-Agent Perspectives</h2>
       <div class="agent-grid">
         ${agentList.map((a) => `
@@ -376,7 +376,7 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
               <div class="agent-avatar" style="background:${a.color}22;color:${a.color}">${a.icon}</div>
               <span class="agent-name" style="color:${a.color}">${a.label}</span>
             </div>
-            <p class="agent-insight">${(agentInsights[a.key] ?? "Data tidak tersedia.").substring(0, 200)}${(agentInsights[a.key] ?? "").length > 200 ? "..." : ""}</p>
+            <p class="agent-insight">${(agentInsights[a.key] ?? "No data available.").substring(0, 200)}${(agentInsights[a.key] ?? "").length > 200 ? "..." : ""}</p>
           </div>
         `).join("")}
       </div>
@@ -387,7 +387,7 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
   const s8 = slide(8, TOTAL, `
     <div class="content-slide">
       <div class="slide-label">08 — STRATEGIC RECOMMENDATIONS</div>
-      <h2 class="slide-title">Langkah Aksi yang Disarankan</h2>
+      <h2 class="slide-title">Recommended Action Plan</h2>
       <div class="rec-list">
         ${recommendations.map((r, i) => `
           <div class="rec-item">
@@ -403,8 +403,8 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
   const s9 = slide(9, TOTAL, `
     <div class="cover-slide">
       <div class="cover-badge">THANK YOU</div>
-      <h1 class="cover-title" style="font-size:2.4rem">This report was automatically generated by FiSwarm</h1>
-      <p class="cover-subtitle">Powered by FiSwarm Swarm AI — multi-agent simulation for accurate and actionable SME financial predictions.</p>
+      <h1 class="cover-title" style="font-size:2.4rem">This report was automatically generated by Fi Swarm</h1>
+      <p class="cover-subtitle">Powered by Multi-Agent AI — swarm simulation for accurate and actionable SME financial predictions.</p>
       <div class="cover-meta">
         <span>${businessName}</span>
         <span class="sep">|</span>
@@ -412,7 +412,7 @@ export function buildPitchDeckHTML(data: PitchDeckInput): string {
         <span class="sep">|</span>
         <span style="color:${riskLevelColor(riskLevel)}">Risk: ${riskLevel.toUpperCase()}</span>
       </div>
-      <div class="cover-brand">FiSwarm · SME Financial Intelligence</div>
+      <div class="cover-brand">Fi Swarm · SME Financial Intelligence</div>
     </div>
   `);
 

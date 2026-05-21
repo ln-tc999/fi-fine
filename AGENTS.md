@@ -24,6 +24,12 @@ npx vitest run -t "test name"                # single test by name
 | Shared | `shared/` | constants, types, errors |
 | DB schema | `drizzle/schema.ts` | Drizzle ORM, MySQL, migrations in `drizzle/` |
 
+## Branding
+
+- App name: **Fi Swarm**
+- Tagline: "AI-Powered SME Financial Intelligence"
+- Track: AI in Finance & Business (AI Agent Sol Hackathon)
+
 - **API**: tRPC at `/api/trpc`, transformer = `superjson`. Router in `server/routers.ts`.
 - **Procedures**: `publicProcedure`, `protectedProcedure` (authenticated). Auth via JWT in `Authorization: Bearer <token>` header (stored in localStorage on client).
 - **DB**: Lazy-initialized via `getDb()` in `server/db.ts` — gracefully returns null if DATABASE_URL unset.

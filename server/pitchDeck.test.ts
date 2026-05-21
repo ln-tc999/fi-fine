@@ -131,9 +131,9 @@ describe("buildPitchDeckHTML", () => {
     expect(html).toContain("65%");
   });
 
-  it("includes FiSwarm branding on every slide", () => {
+  it("includes Fi Swarm branding on every slide", () => {
     const html = buildPitchDeckHTML(sampleInput);
-    const brandCount = (html.match(/FiSwarm/g) ?? []).length;
+    const brandCount = (html.match(/Fi Swarm/g) ?? []).length;
     expect(brandCount).toBeGreaterThanOrEqual(9); // at least once per slide
   });
 
