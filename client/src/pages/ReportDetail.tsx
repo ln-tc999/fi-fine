@@ -80,7 +80,7 @@ function SlideCarousel({ html }: { html: string }) {
                   (e.target as HTMLIFrameElement).style.transform = `scale(${scale})`;
                 }
               }}
-              sandbox="allow-same-origin"
+              sandbox="allow-same-origin allow-scripts"
             />
           </div>
         </div>
