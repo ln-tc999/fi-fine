@@ -282,7 +282,7 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
   } = params;
 
   const payload: Record<string, unknown> = {
-    model: process.env.NVIDIA_MODEL ?? "nvidia/llama-3.1-nemotron-70b-instruct",
+    model: process.env.NVIDIA_MODEL ?? "nvidia/llama-3.3-nemotron-super-49b-v1",
     messages: messages.map(normalizeMessage),
   };
 

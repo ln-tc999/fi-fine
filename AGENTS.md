@@ -27,7 +27,7 @@ npx vitest run -t "test name"                # single test by name
 - **API**: tRPC at `/api/trpc`, transformer = `superjson`. Router in `server/routers.ts`.
 - **Procedures**: `publicProcedure`, `protectedProcedure` (authenticated). Auth via JWT in `Authorization: Bearer <token>` header (stored in localStorage on client).
 - **DB**: Lazy-initialized via `getDb()` in `server/db.ts` — gracefully returns null if DATABASE_URL unset.
-- **LLM**: `invokeLLM()` in `server/_core/llm.ts` uses NVIDIA API (`NVIDIA_API_KEY`). Model: `nvidia/llama-3.1-nemotron-70b-instruct` (overridable via `NVIDIA_MODEL` env var).
+- **LLM**: `invokeLLM()` in `server/_core/llm.ts` uses NVIDIA API (`NVIDIA_API_KEY`). Model: `nvidia/llama-3.3-nemotron-super-49b-v1` (overridable via `NVIDIA_MODEL` env var).
 - **Client**: React 19, wouter (not react-router), TanStack Query, shadcn/ui (new-york style), Tailwind CSS v4 (`@import "tailwindcss"` — not `@tailwind` directives).
 - **Theme**: Always-dark (`:root` = dark colors, `.dark` block is empty).
 - **Env vars**: Read in `server/_core/env.ts`. Required: `DATABASE_URL`, `JWT_SECRET`, `NVIDIA_API_KEY`. No `.env.example` — copy against `env.ts`.
