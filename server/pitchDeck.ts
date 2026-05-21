@@ -1,5 +1,5 @@
 /**
- * pitchDeck.ts — Server-side pitch deck generator for FiSwarm
+ * pitchDeck.ts — Server-side pitch deck generator for Fi-Fine
  *
  * Generates a 9-slide HTML presentation from simulation + report data,
  * then renders it to PDF using Puppeteer with the system Chromium binary.
