@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const STORAGE_DIR = path.resolve(import.meta.dirname, "..", "storage");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const STORAGE_DIR = path.resolve(__dirname, "..", "storage");
 
 function ensureDir() {
   if (!fs.existsSync(STORAGE_DIR)) {

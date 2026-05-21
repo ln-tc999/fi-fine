@@ -3,11 +3,14 @@ import express from "express";
 import { createServer } from "http";
 import net from "net";
 import path from "path";
+import { fileURLToPath } from "node:url";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerPitchDeckRoute } from "../pitchDeckRoute";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -35,7 +38,7 @@ async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   // Local file storage
-  const storageDir = path.resolve(import.meta.dirname, "..", "storage");
+  const storageDir = path.resolve(__dirname, "..", "storage");
   app.use("/storage", express.static(storageDir));
   // Pitch deck PDF download
   registerPitchDeckRoute(app);
