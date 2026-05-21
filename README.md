@@ -1,4 +1,4 @@
-# Fi Swarm — AI-Powered SME Financial Intelligence
+# FI-FINE — AI-POWERED SME FINANCIAL INTELLIGENCE
 
 > **Track:** AI in Finance & Business — AI Agent Sol Hackathon, Bingham University
 
