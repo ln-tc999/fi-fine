@@ -1,116 +1,116 @@
-# Fiswarm
+# Fi Swarm — AI-Powered SME Financial Intelligence
 
-A full‑stack TypeScript application with a React client, Node.js server, and shared utilities.
+> **Track:** AI in Finance & Business — AI Agent Sol Hackathon, Bingham University
 
-## Project Overview
+**Live App:** [https://fi-fine-production.up.railway.app](https://fi-fine-production.up.railway.app)  
+**GitHub:** [https://github.com/ln-tc999/fi-fine](https://github.com/ln-tc999/fi-fine)
 
-Fiswarm is a full‑stack TypeScript application with:
+---
 
-- **Client**: React (Vite, Tailwind CSS, wouter, Radix UI, Recharts)
-- **Server**: Node.js (Express, tRPC, Drizzle ORM, MySQL)
-- **Shared**: Common constants, types, utilities
+## Problem
 
-## Build / Lint / Test Commands
+Small and medium enterprises (SMEs) across Africa and beyond struggle with **cashflow uncertainty**. Most lack access to affordable financial analysts or sophisticated forecasting tools. Decisions about inventory, hiring, and investment are made blindly — leading to missed opportunities or preventable failures.
 
-- `pnpm install` – install dependencies (pnpm v10.4.1)
-- `pnpm run dev` – start dev server with hot‑reload
-- `pnpm run build` – build client (Vite) and server (esbuild)
-- `pnpm run start` – run production build
-- `pnpm run check` – TypeScript type checking (`tsc --noEmit`)
-- `pnpm run format` – format code with Prettier
-- `pnpm run test` – run all tests via `vitest run`
-- `pnpm run db:push` – generate and apply Drizzle migrations
+Traditional accounting software records history but **cannot predict the future**. Financial modeling requires expertise most SME owners don't have.
 
-**Running a single test**:
+## Solution
 
-```bash
-npx vitest run server/path/to/file.test.ts   # by file
-npx vitest run -t "test name"                # by name
+Fi Swarm is a **multi-agent AI simulation platform** that forecasts SME cashflow using four collaborative LLM agents:
+
+| Agent | Perspective |
+|---|---|
+| **Owner** | Business strategy, profit margins, growth decisions |
+| **Supplier** | Supply chain health, payment terms, procurement risk |
+| **Customer** | Demand patterns, price sensitivity, purchasing behavior |
+| **Bank** | Creditworthiness, liquidity ratios, loan eligibility |
+
+Each agent analyzes the same business data but from its unique viewpoint. Together, they produce **more accurate, multi-dimensional cashflow projections** than any single-agent approach.
+
+The system automatically:
+- Generates a **12-month cashflow forecast** with confidence scoring
+- Detects **financial risks** (Low / Medium / High / Critical)
+- Produces a **professional 9-slide PDF pitch deck** with charts, KPIs, and recommendations
+- Allows users to **chat with individual agents** for deeper insights
+
+## Features
+
+- **Dashboard** — Real-time KPI cards, income vs expense bar charts, net cashflow trends
+- **Transaction Management** — Log income/expense/invoice records, import CSV/Excel
+- **Multi-Agent Simulation** — 4-step wizard: seed data → configure scenarios → launch LLM agents → receive report
+- **Risk Alert System** — Automatic detection and severity classification of financial risks
+- **AI Chat** — Conversational interface to query individual simulation agents
+- **Pitch Deck Export** — Auto-generated 9-slide PDF presentation ready for investors or stakeholders
+- **Quick Demo** — Pre-seeded demo environment to explore all features without signing up
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | React 19, TypeScript, Vite, Tailwind CSS v4, shadcn/ui, Recharts, wouter |
+| **Backend** | Node.js, Express, tRPC, Drizzle ORM |
+| **Database** | MySQL (Railway) |
+| **AI / LLM** | NVIDIA API — `nvidia/llama-3.3-nemotron-super-49b-v1` |
+| **PDF Export** | Puppeteer Core + `@sparticuz/chromium` |
+| **Auth** | JWT (localStorage-based) |
+| **Deployment** | Railway (Nixpacks) |
+
+## Architecture
+
+```
+┌─────────────┐     ┌─────────────┐     ┌───────────┐
+│  React SPA  │────▶│  tRPC API   │────▶│  NVIDIA   │
+│  (Vite)     │     │  (Express)  │     │  LLM API  │
+└─────────────┘     └──────┬──────┘     └───────────┘
+                           │
+                    ┌──────▼──────┐
+                    │   MySQL DB  │
+                    │  (Railway)  │
+                    └─────────────┘
 ```
 
-## Code Style Guidelines
+## AI Models & Tools Used
 
-### General
+| Tool | Purpose |
+|---|---|
+| `nvidia/llama-3.3-nemotron-super-49b-v1` | Core LLM for multi-agent simulation |
+| NVIDIA API (`integrate.api.nvidia.com`) | LLM inference endpoint |
+| Puppeteer + Chromium | PDF generation for pitch deck export |
+| Drizzle ORM | Database schema and migrations |
+| tRPC | End-to-end typesafe API |
+| Vite + esbuild | Build tooling |
 
-- **TypeScript**: Strict mode enabled (`tsconfig.json`).
-- **Formatting**: Prettier with config in `.prettierrc` (semi, double quotes, 2‑space indent, trailing commas ES5).
-- **No linter**: Relies on TypeScript compiler and Prettier.
+## How to Run Locally
 
-### Imports
+```bash
+pnpm install
+cp .env.example .env   # fill in DATABASE_URL, JWT_SECRET, NVIDIA_API_KEY
+pnpm run dev           # starts Express + Vite HMR
+```
 
-- Use path aliases:
-  - `@/` → `client/src/`
-  - `@shared/` → `shared/`
-- Prefer named exports over default exports.
-- Group imports: external packages first, then internal aliases, then relative.
+### Build & Deploy
 
-### Naming
+```bash
+pnpm run build         # Vite (client) + esbuild (server) → dist/
+pnpm run start         # NODE_ENV=production node dist/index.js
+```
 
-- **Components/Types**: PascalCase (`UserCard`, `TransactionProps`).
-- **Functions/Variables**: camelCase (`getUser`, `isAuthenticated`).
-- **Constants**: UPPER_SNAKE_CASE (`API_TIMEOUT`).
-- **Files**:
-  - Components: `PascalCase.tsx`
-  - Utilities: `camelCase.ts`
-  - Tests: `*.test.ts` or `*.spec.ts`
+### Tests
 
-### Types & Validation
+```bash
+pnpm run test          # 57 tests (pitch deck, seed generation, import)
+```
 
-- Use Zod for runtime validation (especially for tRPC input/output).
-- Prefer interfaces for object shapes; type aliases for unions/intersections.
-- Export types when they are used across modules.
+## Team Roles
 
-### Error Handling
+*To be filled with team member names and roles.*
 
-- Use try‑catch for async operations; log errors with context.
-- For tRPC procedures, throw `TRPCError` with appropriate code (`BAD_REQUEST`, `UNAUTHORIZED`, etc.).
-- Never expose internal error messages to the client; return safe defaults.
+| Role | Name |
+|---|---|
+| Technical Lead | |
+| Domain Expert (Finance/Business) | |
+| Designer / Communicator | |
+| Wildcard | |
 
-### React Patterns
+## License
 
-- Functional components with hooks.
-- Use `React.memo` only when necessary.
-- Prefer `useCallback`/`useMemo` for performance‑critical code.
-- State management: React Query (server state), Context (UI state).
-
-### Server Patterns
-
-- tRPC routers defined in `server/routers.ts`.
-- Database access via Drizzle ORM (`server/db.ts`).
-- Business logic separated into helper functions.
-- Use environment variables for secrets (`.env` files are ignored by Git).
-
-### Testing
-
-- Tests are colocated with the code they test (e.g., `server/akunfish.test.ts`).
-- Use Vitest with `describe`/`it`/`expect`.
-- Mock external dependencies (DB, LLM) with `vi.mock`.
-- Keep tests focused; one assertion per behavior.
-
-### Documentation
-
-- No inline comments unless explaining complex algorithms.
-- Use JSDoc for public APIs and exported functions.
-
-## Project Structure
-
-The project is organized into three main directories:
-
-- `client/src/`: React frontend with components, pages, hooks, and contexts.
-- `server/`: Node.js backend with tRPC routers, Drizzle ORM, and tests (colocated as `*.test.ts`).
-- `shared/`: Common constants and utilities used across client and server.
-
-## Important Notes
-
-- **Package Manager**: pnpm (v10.4.1). Do not use npm/yarn.
-- **Environment**: Copy `.env.example` to `.env` for local development.
-- **Patches**: Some dependencies are patched via `patches/` (see `pnpm.patchedDependencies`).
-- **UI Components**: Follow the design system (dark theme, teal primary, no gradients/emoji).
-
-## When Making Changes
-
-1. **Run type check** after modifying TypeScript files.
-2. **Format code** before committing (`pnpm run format`).
-3. **Add/update tests** for new functionality.
-4. **Keep the database schema in sync** by running `pnpm run db:push` after schema changes.
-5. **Verify the app starts** (`pnpm run dev`) and **builds** (`pnpm run build`).
+MIT — Built for the AI Agent Sol Hackathon, Bingham University.
