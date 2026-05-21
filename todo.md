@@ -141,8 +141,8 @@
 - [x] Final CTA section with gradient border card
 - [x] Footer: multi-column with product links
 
-## Rebrand to FiSwarm + English Conversion
-- [x] Rename app title from AkunFish to FiSwarm (index.html, package.json, VITE_APP_TITLE)
+## Rebrand to Fi-Fine+ English Conversion
+- [x] Rename app title from AkunFish to Fi-Fine(index.html, package.json, VITE_APP_TITLE)
 - [x] Convert Home.tsx landing page to English
 - [x] Convert DashboardLayout sidebar nav items to English
 - [x] Convert Dashboard page to English
@@ -152,7 +152,7 @@
 - [x] Convert Reports page to English
 - [x] Convert ReportDetail page to English
 - [x] Convert QuickDemo page to English
-- [x] Replace all "AkunFish" text references with "FiSwarm"
+- [x] Replace all "AkunFish" text references with "Fi-Fine"
 
 ## GitHub Push & Cleanup
 - [ ] Remove all "MiroFish" mentions from UI text (replace with "Swarm AI Engine")
